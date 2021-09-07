@@ -29,7 +29,6 @@ To run, please follow instructions on https://github.com/typicode/json-server, o
 Data is provided for:
 
 - Booked appointments: `/appointments`
-- Appointment availability: `/availability`
   Please extend these if you think the application requires it - data stored in db.json
 
 # Front-end
