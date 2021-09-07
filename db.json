@@ -1,0 +1,18 @@
+{
+  "appointments": [
+    {
+      "id": 1,
+      "appointmentDateTime": "2021-09-01T10:00:00+0000",
+      "patientFirstName": "Bob",
+      "patientLastName": "Smith",
+      "patientNotes": "I have a headache."
+    },
+    {
+      "id": 2,
+      "appointmentDateTime": "2021-09-03T17:00:00+0000",
+      "patientFirstName": "John",
+      "patientLastName": "Smith",
+      "patientNotes": "My back hurts."
+    }
+  ]
+}
