@@ -8,9 +8,8 @@
 
       <mat-form-field>
         <mat-select formControlName="appointmentDateTime" placeholder="Choose an option">
-          <mat-option *ngFor="let time of TIME_SLOTS" value="{{time.time}}"
-                      [disabled]="time.taken">{{time.time}}</mat-option>
-
+          <mat-option *ngFor="let time of TIME_SLOTS" value="{{time}}"
+                      [disabled]="taken.has(time)" >{{time}}:00</mat-option>
         </mat-select>
         <mat-error *ngIf="form.appointmentDateTime.errors?.required">
           Time is required

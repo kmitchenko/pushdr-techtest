@@ -11,10 +11,14 @@ import {AppointmentService} from '../services/appointment.service';
   styleUrls: ['./appointment-modal.component.scss']
 })
 export class AppointmentModalComponent
-  extends SimpleModalComponent<{ date: Date }, boolean> implements OnInit {
+  extends SimpleModalComponent<{ date: Date, takenTimeslots: string[] }, boolean> implements OnInit {
   TIME_SLOTS = TIME_SLOTS;
   appointmentForm: FormGroup;
   date: Date;
+
+  takenTimeslots: string[];
+  taken: Set<number>;
+
 
   constructor(private fb: FormBuilder,
               private appointmentService: AppointmentService) {
@@ -28,6 +32,8 @@ export class AppointmentModalComponent
       patientLastName: ['', Validators.required],
       patientEmail: ['', [Validators.email, Validators.required]]
     });
+
+    this.taken = new Set(this.formatTakenSlots(this.takenTimeslots));
   }
 
   get form(): any {
@@ -40,7 +46,6 @@ export class AppointmentModalComponent
 
     if (this.appointmentForm.invalid) return;
 
-    console.log(this.appointmentForm.value);
     const newAppointment = this.createAppointment(this.date, this.appointmentForm.value);
     this.appointmentService.postAppointment(newAppointment);
     this.close();
@@ -51,6 +56,13 @@ export class AppointmentModalComponent
     form.appointmentDateTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), selectedTime).toISOString();
 
     return form;
+  }
+
+  formatTakenSlots(timeSlots: string[]): number[] {
+    const formatedArr = timeSlots.map(val => {
+      return new Date(val).getHours();
+    });
+    return formatedArr;
   }
 
 }

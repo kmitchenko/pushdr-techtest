@@ -2,7 +2,7 @@
   "appointments": [
     {
       "id": 1,
-      "appointmentDateTime": "2021-09-01T10:00:00+0000",
+      "appointmentDateTime": "2021-09-28T10:00:00.000Z",
       "patientFirstName": "Bob",
       "patientLastName": "Smith",
       "patientEmail": "bobsmith@smith.com",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "appointmentDateTime": "2021-09-03T17:00:00+0000",
+      "appointmentDateTime": "2021-09-27T09:00:00.000Z",
       "patientFirstName": "John",
       "patientLastName": "Smith",
       "patientEmail": "johnsmith@smith.com",
