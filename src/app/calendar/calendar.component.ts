@@ -13,7 +13,8 @@ import {Subscription} from 'rxjs';
 export class CalendarComponent implements OnInit, OnDestroy {
   today: Date = new Date();
   selectedDate: Date;
-  appointments: Appointment[];
+
+  appointments: Appointment[]
   subscription: Subscription;
 
   constructor(private simpleModalService: SimpleModalService,
@@ -21,9 +22,9 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.appointmentService.getAllAppointments().subscribe(data => {
-      this.appointments = data;
-    });
+    this.subscription = this.appointmentService.appointments$
+      .subscribe(app => this.appointments = app);
+
   }
 
   onSelect(event: Date): void {

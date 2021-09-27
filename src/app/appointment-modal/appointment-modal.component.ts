@@ -47,7 +47,7 @@ export class AppointmentModalComponent
     if (this.appointmentForm.invalid) return;
 
     const newAppointment = this.createAppointment(this.date, this.appointmentForm.value);
-    this.appointmentService.postAppointment(newAppointment);
+    this.appointmentService.addNewAppointment(newAppointment);
     this.close();
   }
 
