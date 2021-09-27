@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SimpleModalComponent} from 'ngx-simple-modal';
 import {TIME_SLOTS} from './config/timeslots.config';
+import {Appointment} from './types/appointment.type';
+import {AppointmentService} from '../services/appointment.service';
 
 @Component({
   selector: 'app-appointment-modal',
@@ -14,16 +16,17 @@ export class AppointmentModalComponent
   appointmentForm: FormGroup;
   date: Date;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private appointmentService: AppointmentService) {
     super();
   }
 
   ngOnInit(): void {
     this.appointmentForm = this.fb.group({
-      time: ['', Validators.required],
-      name: ['', Validators.required],
-      surname: ['', Validators.required],
-      email: ['', [Validators.email, Validators.required]]
+      appointmentDateTime: ['', Validators.required],
+      patientFirstName: ['', Validators.required],
+      patientLastName: ['', Validators.required],
+      patientEmail: ['', [Validators.email, Validators.required]]
     });
   }
 
@@ -36,7 +39,18 @@ export class AppointmentModalComponent
     this.appointmentForm.markAllAsTouched();
 
     if (this.appointmentForm.invalid) return;
+
+    console.log(this.appointmentForm.value);
+    const newAppointment = this.createAppointment(this.date, this.appointmentForm.value);
+    this.appointmentService.postAppointment(newAppointment);
     this.close();
+  }
+
+  createAppointment(date: Date, form: Appointment): Appointment {
+    const selectedTime = +form.appointmentDateTime.slice(0, 2);
+    form.appointmentDateTime = new Date(date.getFullYear(), date.getMonth(), date.getDate(), selectedTime).toISOString();
+
+    return form;
   }
 
 }

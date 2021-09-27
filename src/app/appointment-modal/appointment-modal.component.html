@@ -7,12 +7,12 @@
       <p>Choose a convenient time slot:</p>
 
       <mat-form-field>
-        <mat-select formControlName="time" placeholder="Choose an option">
+        <mat-select formControlName="appointmentDateTime" placeholder="Choose an option">
           <mat-option *ngFor="let time of TIME_SLOTS" value="{{time.time}}"
                       [disabled]="time.taken">{{time.time}}</mat-option>
 
         </mat-select>
-        <mat-error *ngIf="form.time.errors?.required">
+        <mat-error *ngIf="form.appointmentDateTime.errors?.required">
           Time is required
         </mat-error>
       </mat-form-field>
@@ -20,8 +20,8 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
-        <input formControlName="name" matInput placeholder="Enter your name here">
-        <mat-error *ngIf="form.name.errors?.required">
+        <input formControlName="patientFirstName" matInput placeholder="Enter your name here">
+        <mat-error *ngIf="form.patientFirstName.errors?.required">
           Name is required
         </mat-error>
       </mat-form-field>
@@ -29,18 +29,23 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Surname</mat-label>
-        <input formControlName="surname" matInput placeholder="Enter your surname here">
-        <mat-error *ngIf="form.surname.errors?.required">
+        <input formControlName="patientLastName" matInput placeholder="Enter your surname here">
+        <mat-error *ngIf="form.patientLastName.errors?.required">
           Surname is required
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input formControlName="email" matInput placeholder="Enter your email here">
-        <mat-error *ngIf="form.email.errors?.required">
+        <input formControlName="patientEmail" matInput placeholder="Enter your email here">
+        <mat-error *ngIf="form.patientEmail.errors?.required">
           Email is required
         </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Describe your problem:</mat-label>
+        <textarea matInput></textarea>
       </mat-form-field>
 
     </form>

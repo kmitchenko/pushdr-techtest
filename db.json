@@ -5,6 +5,7 @@
       "appointmentDateTime": "2021-09-01T10:00:00+0000",
       "patientFirstName": "Bob",
       "patientLastName": "Smith",
+      "patientEmail": "bobsmith@smith.com",
       "patientNotes": "I have a headache."
     },
     {
@@ -12,7 +13,15 @@
       "appointmentDateTime": "2021-09-03T17:00:00+0000",
       "patientFirstName": "John",
       "patientLastName": "Smith",
+      "patientEmail": "johnsmith@smith.com",
       "patientNotes": "My back hurts."
+    },
+    {
+      "appointmentDateTime": "2021-09-29T07:00:00.000Z",
+      "patientFirstName": "Name",
+      "patientLastName": "Surname",
+      "patientEmail": "test1@test.com",
+      "id": 3
     }
   ]
 }

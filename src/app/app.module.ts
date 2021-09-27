@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {SimpleModalModule} from 'ngx-simple-modal';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {AboutComponent} from './about/about.component';
@@ -26,6 +27,7 @@ import {MatSelectModule} from '@angular/material/select';
     BrowserModule,
     SimpleModalModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatDatepickerModule,
     MatCardModule,
     MatNativeDateModule,
@@ -37,7 +39,7 @@ import {MatSelectModule} from '@angular/material/select';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [AboutComponent],
+  entryComponents: [AboutComponent, AppointmentModalComponent],
 })
 export class AppModule {
 }
