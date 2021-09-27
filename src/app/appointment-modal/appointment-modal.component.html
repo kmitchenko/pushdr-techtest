@@ -1,0 +1,52 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h1 class="text">Would you like to make an appointment for {{date | date}}?</h1>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="appointmentForm">
+      <p>Choose a convenient time slot:</p>
+
+      <mat-form-field>
+        <mat-select formControlName="time" placeholder="Choose an option">
+          <mat-option *ngFor="let time of TIME_SLOTS" value="{{time.time}}"
+                      [disabled]="time.taken">{{time.time}}</mat-option>
+
+        </mat-select>
+        <mat-error *ngIf="form.time.errors?.required">
+          Time is required
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput placeholder="Enter your name here">
+        <mat-error *ngIf="form.name.errors?.required">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Surname</mat-label>
+        <input formControlName="surname" matInput placeholder="Enter your surname here">
+        <mat-error *ngIf="form.surname.errors?.required">
+          Surname is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="Enter your email here">
+        <mat-error *ngIf="form.email.errors?.required">
+          Email is required
+        </mat-error>
+      </mat-form-field>
+
+    </form>
+    <div class="modal-footer">
+      <button type="button" (click)="close()">Close</button>
+      <button type="button" (click)="confirm()">Confirm</button>
+    </div>
+  </div>
+</div>

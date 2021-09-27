@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SimpleModalService} from 'ngx-simple-modal';
+import {AppointmentModalComponent} from '../appointment-modal/appointment-modal.component';
 
 @Component({
   selector: 'pushdr-calendar',
@@ -6,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent implements OnInit {
-  viewDate = new Date();
+  today: Date = new Date();
+  selectedDate: Date;
 
-  constructor() {}
+  constructor(private simpleModalService: SimpleModalService) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
+  onSelect(event: Date): void {
+    this.selectedDate = event;
+
+    this.simpleModalService.addModal(AppointmentModalComponent, {
+      date: event
+    });
+
+  }
 }

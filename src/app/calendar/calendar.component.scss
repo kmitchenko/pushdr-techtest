@@ -1,3 +1,19 @@
 :host {
   text-align: center;
 }
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.calendar-container {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+
+  .calendar-card {
+    width: 300px;
+  }
+}
+

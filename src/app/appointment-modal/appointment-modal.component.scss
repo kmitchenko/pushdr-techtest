@@ -1,0 +1,18 @@
+h1 {
+  color: dimgray;
+  font-size: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    margin: 0 10px;
+  }
+}

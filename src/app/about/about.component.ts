@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SimpleModalComponent } from 'ngx-simple-modal';
-import { CalendarService } from '../calendar.service';
+import { CalendarService } from '../calendar/services/calendar.service';
 
 @Component({
   selector: 'app-about',
